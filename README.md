@@ -18,7 +18,6 @@ Mamma's Recipes is your personal recipe book  _Italian-Cuisine-fueled_ full-stac
 - [ ] Reached Minimum Viable Product (MVP)
 - [ ] Deploy the app publicly online
 - [ ] Allowed users to search for recipes
-- [ ]
 
 ## User Stories
 - As a user, I would like to create new recipes.
