@@ -1,6 +1,9 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+# from django.shortcuts import render
+from rest_framework import viewsets
+from .models import Recipe
+from .serializers import RecipeSerializer
 
 # Create your views here.
-def main(request):
-    return HttpResponse("Hello, world. You're at the api index.")
+class RecipeViewSet(viewsets.ModelViewSet):
+    queryset = Recipe.objects.all()
+    serializer_class = RecipeSerializer
