@@ -15,10 +15,14 @@ class RecipeViewSet(viewsets.ModelViewSet):
         # return super().perform_create(serializer)
         serializer.save(user=self.request.user)
 
+    def perform_destroy(self, instance):
+        instance.delete()
+        # return Response(status=status.HTTP_204_NO_CONTENT)
+
 class UserRegistrationView(APIView):
     authentication_classes = [] 
     permission_classes = []
-    
+
     def post(self, request):
         serializer = UserSerializer(data=request.data)
         if serializer.is_valid():
