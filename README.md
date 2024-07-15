@@ -4,18 +4,20 @@
 Mamma's Recipes is your personal recipe book  _Italian-Cuisine-fueled_ full-stack application allows users to create, manage, and browse their favorite recipes in a simple and user-friendly interface.
 
 ## Technologies used
-- [Django](https://www.djangoproject.com/) for backend
+- [Django](https://www.djangoproject.com/) for backend, including REST API developmetn
 - [React](https://react.dev) for frontend
 - [AWS](https://aws.amazon.com/) S3 for frontend deploying 
 - [AWS](https://aws.amazon.com/) EC2 for backend deploying
-- [Postman](https://www.postman.com/) for API testing
-- [TailwindCSS](https://tailwindcss.com/) for styling
+- [Postman](https://www.postman.com/) for API testing and development
+- [TailwindCSS](https://tailwindcss.com/) for fontend styling
 
 ## Objectives
-- [ ] Made the app functional with all the routes correctly working
-- [ ] Allowed users to sign up, login and logout of the site
-- [ ] Made basic UI/UX
+- [x] Made the backend functional with all the CRUD operations correctly working
+- [x] Implemented authentication and user managment
+- [ ] Made basic frontend
+- [ ] Implemented api functionalities in frontend
 - [ ] Reached Minimum Viable Product (MVP)
+- [ ] Enhanced UI/UX
 - [ ] Deploy the app publicly online
 - [ ] Allowed users to search for recipes
 
@@ -25,6 +27,7 @@ Mamma's Recipes is your personal recipe book  _Italian-Cuisine-fueled_ full-stac
 - As a user, I would like to view details of a single recipe, including ingredients and instructions.
 - As a user, I would like to edit and delete my recipes.
 - As a user, I would like to search for recipes using ingredients.
+- As a user, I can authenticate and manage my recipes securely.
 
 
 ## Routes Table
@@ -34,12 +37,12 @@ Mamma's Recipes is your personal recipe book  _Italian-Cuisine-fueled_ full-stac
 | **URL** | **HTTP Verb** | **Action** |
 |------|---------------|---------|
 | /recipes/ | GET | index   |
-| /recipes/:recipeId |  GET | show   |
+| /recipes/:recipeId/ |  GET | show   |
 | /recipes/ |  POST |  create |
-| /recipes/:recipeId | PUT  |  edit |
-| /recipes/:recipeId | DELETE  |  destroy |
+| /recipes/:recipeId/ | PUT  |  edit |
+| /recipes/:recipeId/ | DELETE  |  destroy |
 
-### Users
+### User
 | **URL**          | **HTTP Verb**|**Action**|
 |------------------|--------------|----------|
 | /auth/signup    | POST         | create  
