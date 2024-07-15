@@ -16,6 +16,9 @@ class RecipeViewSet(viewsets.ModelViewSet):
         serializer.save(user=self.request.user)
 
 class UserRegistrationView(APIView):
+    authentication_classes = [] 
+    permission_classes = []
+    
     def post(self, request):
         serializer = UserSerializer(data=request.data)
         if serializer.is_valid():
