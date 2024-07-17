@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link , useNavigate} from "react-router-dom"
 import apiUrl from "../apiConfig"
 import axios from "axios"
 
@@ -11,6 +11,8 @@ export default function SignUp() {
   })
   const [error, setError] = useState(null)
   const [success, setSuccess] = useState(null)
+
+  const navigate = useNavigate()
 
   const handleChange = (e) => {
     setFormData({
@@ -35,6 +37,7 @@ export default function SignUp() {
       console.log(res.data)
       setSuccess("User registered successfully")
       setError(null)
+      navigate("/sign-in")
     } catch (err) {
       console.log(err)
       setSuccess(null)
@@ -76,7 +79,7 @@ export default function SignUp() {
           Sign Up
         </button>
       </form>
-      <div>
+      <div className="flex gap-2 mt-5">
         <p>Have an account?</p>
         <Link to={"/sign-in"}>
           <span className="text-blue-700">Sign In</span>
