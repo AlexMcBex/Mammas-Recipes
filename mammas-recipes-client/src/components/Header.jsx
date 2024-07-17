@@ -1,15 +1,28 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { FaSearch} from 'react-icons/fa'
+import { FaSearch } from 'react-icons/fa'
 
 export default function Header() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+
+  useEffect(() => {
+    // Check if token is present in localStorage to determine authentication status
+    const token = localStorage.getItem('token')
+    setIsLoggedIn(!!token) // !!token converts token to a boolean
+  }, [])
+
+  const handleSignOut = () => {
+    localStorage.removeItem('token')
+    setIsLoggedIn(false) // Update state to reflect logged out status
+  }
+
   return (
     <header className="border-b-4 border-gray-500 shadow-md" style={{ background: 'linear-gradient(to right, #2f855a 33.33%, #ffffff 33.33%, #ffffff 66.66%, #c53030 66.66%)' }}>
-    <div className="flex justify-between items-center max-w-6xl mx-auto p-3">
+      <div className="flex justify-between items-center max-w-6xl mx-auto p-3">
         <Link to={'/'}>
-        <h1 className="font-bold text-sm sm:text-xl flex flex-wrap text-white">
-          Mamma's Recipes
-        </h1>
+          <h1 className="font-bold text-sm sm:text-xl flex flex-wrap text-white">
+            Mamma's Recipes
+          </h1>
         </Link>
         {/* SEARCH BAR */}
         <form
@@ -25,20 +38,26 @@ export default function Header() {
           <FaSearch className="text-slate-700" />
         </form>
         <ul className="flex gap-4">
-        <Link to={'/'}>
+          <Link to={'/'}>
             <li className='hidden sm:inline text-slate-200 hover:text-white font-bold'>Home</li>
-        </Link>
-        <Link to={'/about'}>
+          </Link>
+          <Link to={'/about'}>
             <li className='hidden sm:inline text-slate-200 hover:text-white font-bold'>About</li>
-        </Link>
-        <Link to={'/recipes'}>
+          </Link>
+          <Link to={'/recipes'}>
             <li className='hidden sm:inline text-slate-200 hover:text-white font-bold'>Recipes</li>
-        </Link>
-        <Link to={'/sign-in'}>
-            <li className=' sm:inline text-slate-200 hover:text-white font-bold'>Sign in</li>
-        </Link>
+          </Link>
+          {isLoggedIn ? (
+            <Link to={'/sign-in'}>
+            <li className='sm:inline text-slate-200 hover:text-white font-bold' onClick={handleSignOut}>Sign out</li>
+            </Link>
+          ) : (
+            <Link to={'/sign-in'}>
+              <li className='sm:inline text-slate-200 hover:text-white font-bold'>Sign in</li>
+            </Link>
+          )}
         </ul>
       </div>
-  </header>
+    </header>
   )
 }
