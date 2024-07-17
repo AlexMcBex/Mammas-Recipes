@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Link , useNavigate} from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import apiUrl from "../apiConfig"
 import axios from "axios"
 
@@ -11,6 +11,7 @@ export default function SignUp() {
   })
   const [error, setError] = useState(null)
   const [success, setSuccess] = useState(null)
+  const [loading, setLoading] = useState(false)
 
   const navigate = useNavigate()
 
@@ -24,6 +25,7 @@ export default function SignUp() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
+      setLoading(true)
       const res = await axios.post(`${apiUrl}/register/`, formData, {
         headers: {
           "Content-Type": "application/json",
@@ -33,14 +35,16 @@ export default function SignUp() {
       if (res.status !== 201) {
         throw new Error(res.data.detail || "An error occurred")
       }
-
-      console.log(res.data)
+      
+      //   console.log(res.data)
       setSuccess("User registered successfully")
       setError(null)
+      setLoading(false)
       navigate("/sign-in")
     } catch (err) {
-      console.log(err)
+      //   console.log(err)
       setSuccess(null)
+      setLoading(false)
       setError(err.message)
     }
   }
@@ -48,8 +52,6 @@ export default function SignUp() {
   return (
     <div className="p-3 max-w-lg mx-auto">
       <h1 className="text-3xl text-center font-semibold my-7">Sign Up</h1>
-      {error && <p className="text-red-500">{error}</p>}
-      {success && <p className="text-green-500">{success}</p>}
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <input
           type="text"
@@ -76,7 +78,7 @@ export default function SignUp() {
           onChange={handleChange}
         />
         <button className="bg-green-600 text-white p-3 rounded-lg uppercase hover:opacity-80">
-          Sign Up
+         {loading ? "Loading..." : "Sign Up"}
         </button>
       </form>
       <div className="flex gap-2 mt-5">
@@ -85,6 +87,8 @@ export default function SignUp() {
           <span className="text-blue-700">Sign In</span>
         </Link>
       </div>
+      {error && <p className="text-red-500 font-bold">{error}</p>}
+      {success && <p className="text-green-500 font-bold">{success}</p>}
     </div>
   )
 }
