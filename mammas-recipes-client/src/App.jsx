@@ -1,13 +1,13 @@
-import { useEffect, useState } from 'react';
-import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Home from './pages/Home';
-import Recipes from './pages/Recipes';
-import About from './pages/About';
-import SignIn from './pages/SignIn';
-import SignOut from './pages/SignOut';
-import SignUp from './pages/SignUp';
+import { useEffect, useState } from 'react'
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import Header from './components/Header'
+import Footer from './components/Footer'
+import Home from './pages/Home'
+import Recipes from './pages/Recipes'
+import About from './pages/About'
+import SignIn from './pages/SignIn'
+// import SignOut from './pages/SignOut'
+import SignUp from './pages/SignUp'
 
 export default function App() {
 
@@ -35,5 +35,5 @@ export default function App() {
     </BrowserRouter>
     </div>
     
-  );
+  )
 }
