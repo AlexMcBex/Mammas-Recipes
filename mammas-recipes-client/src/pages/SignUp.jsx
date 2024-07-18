@@ -1,9 +1,18 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import apiUrl from "../apiConfig"
 import axios from "axios"
 
-export default function SignUp() {
+export default function SignUp({isLoggedIn, setIsLoggedIn}) {
+  
+  const navigate = useNavigate()
+  
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate("/")
+    }
+  }, [isLoggedIn, navigate])
+
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -13,7 +22,6 @@ export default function SignUp() {
   const [success, setSuccess] = useState(null)
   const [loading, setLoading] = useState(false)
 
-  const navigate = useNavigate()
 
   const handleChange = (e) => {
     setFormData({

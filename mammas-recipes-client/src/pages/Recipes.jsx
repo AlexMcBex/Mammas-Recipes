@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { apiIndexRecipes } from '../api/recipes'
+import { apiIndexRecipes } from '../api/recipes/indexRecipes'
 
 export default function Recipes() {
 

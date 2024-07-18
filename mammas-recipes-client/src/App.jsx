@@ -27,8 +27,8 @@ export default function App() {
         <Route path="/recipes" element={<Recipes />} />
         <Route path="/about" element={<About />} />
         <Route path="/sign-in" element={<SignIn isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>} />
-        <Route path="/sign-out" element={<SignOut />} />
-        <Route path="/sign-up" element={<SignUp />} />
+        {/* <Route path="/sign-out" element={<SignOut />} /> */}
+        <Route path="/sign-up" element={<SignUp isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>} />
       </Routes>      
       </main>
     <Footer />

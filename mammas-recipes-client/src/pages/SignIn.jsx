@@ -1,9 +1,17 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import apiUrl from "../apiConfig"
 import axios from "axios"
 
 export default function SignIn({isLoggedIn, setIsLoggedIn}) {
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate("/")
+    }
+  }, [isLoggedIn, navigate])
+  
   const [formData, setFormData] = useState({
     username: "",
     password: "",
@@ -12,7 +20,8 @@ export default function SignIn({isLoggedIn, setIsLoggedIn}) {
   // const [success, setSuccess] = useState(null)
   const [loading, setLoading] = useState(false)
 
-  const navigate = useNavigate()
+  
+
 
   const handleChange = (e) => {
     setFormData({
