@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom"
 import apiUrl from "../apiConfig"
 import axios from "axios"
 
-export default function SignIn() {
+export default function SignIn({isLoggedIn, setIsLoggedIn}) {
   const [formData, setFormData] = useState({
     username: "",
     password: "",
@@ -37,10 +37,11 @@ export default function SignIn() {
       //  token gets stored in localStorage
       const { access } = res.data
       localStorage.setItem("token", access)
-
+      const token = localStorage.getItem("token")
       //   console.log(res.data)
       setError(null)
       setLoading(false)
+      setIsLoggedIn(!!token)
       navigate("/")
     } catch (err) {
       //   console.log(err)

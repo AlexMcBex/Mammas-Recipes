@@ -1,21 +1,13 @@
-import React, { useState, useEffect } from 'react'
+// import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { FaSearch } from 'react-icons/fa'
 
-export default function Header() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
-
-  useEffect(() => {
-    // Check if token is present in localStorage to determine authentication status
-    const token = localStorage.getItem('token')
-    setIsLoggedIn(!!token) // !!token converts token to a boolean
-  }, [])
-
+export default function Header({isLoggedIn, setIsLoggedIn}) {
   const handleSignOut = () => {
     localStorage.removeItem('token')
     setIsLoggedIn(false) // Update state to reflect logged out status
   }
-
+  // console.log("isLoggedIn: " + isLoggedIn)
   return (
     <header className="border-b-4 border-gray-500 shadow-md" style={{ background: 'linear-gradient(to right, #2f855a 33.33%, #ffffff 33.33%, #ffffff 66.66%, #c53030 66.66%)' }}>
       <div className="flex justify-between items-center max-w-6xl mx-auto p-3">
