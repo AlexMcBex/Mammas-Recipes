@@ -14,12 +14,14 @@ Mamma's Recipes is your personal recipe book  _Italian-Cuisine-fueled_ full-stac
 ## Objectives
 - [x] Made the backend functional with all the CRUD operations correctly working
 - [x] Implemented authentication and user managment
-- [ ] Made basic frontend
-- [ ] Implemented api functionalities in frontend
-- [ ] Reached Minimum Viable Product (MVP)
-- [ ] Enhanced UI/UX
-- [ ] Deploy the app publicly online
+- [x] Made basic frontend
+- [x] Implemented api functionalities in frontend
+- [x] Enhanced UI/UX
+- [x] Reached Minimum Viable Product (MVP)
+- [ ] Deploy the backend publicly online
+- [ ] Deploy the frontend publicly online
 - [ ] Allowed users to search for recipes
+- [ ] Improve auth
 
 ## User Stories
 - As a user, I would like to create new recipes.
