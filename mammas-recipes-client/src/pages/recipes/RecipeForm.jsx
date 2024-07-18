@@ -5,7 +5,7 @@ import apiUrl from '../../apiConfig'
 
 export default function RecipeForm() {
   const navigate = useNavigate()
-  const { id } = useParams()
+  const { recipeId } = useParams()
   const [formData, setFormData] = useState({
     name: '',
     ingredients: '',
@@ -17,9 +17,9 @@ export default function RecipeForm() {
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    if (id) {
+    if (recipeId) {
       // Fetch recipe data for editing
-      axios.get(`${apiUrl}/recipes/${id}/`)
+      axios.get(`${apiUrl}/recipes/${recipeId}/`)
         .then((res) => {
           setFormData(res.data)
         })
@@ -27,7 +27,7 @@ export default function RecipeForm() {
           setError('Error fetching recipe data')
         })
     }
-  }, [id])
+  }, [recipeId])
 
   const handleChange = (e) => {
     setFormData({
@@ -45,9 +45,9 @@ export default function RecipeForm() {
       let res
       formData.prep_time = Number(formData.prep_time)
       console.log(formData)
-      if (id) {
+      if (recipeId) {
         // Update existing recipe
-        res = await axios.put(`${apiUrl}/recipes/${id}/`, formData, {
+        res = await axios.put(`${apiUrl}/recipes/${recipeId}/`, formData, {
           headers: {
             'Content-Type': 'application/json',
           Authorization: `Bearer ${localStorage.getItem("token")}`
@@ -78,7 +78,7 @@ export default function RecipeForm() {
   return (
     <div className="p-3 max-w-lg mx-auto">
       <h1 className="text-3xl text-center font-semibold my-7">
-        {id ? 'Edit Recipe' : 'Add Recipe'}
+        {recipeId ? 'Edit Recipe' : 'Add Recipe'}
       </h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <input
@@ -127,7 +127,7 @@ export default function RecipeForm() {
           <option value="Hard">Hard</option>
         </select>
         <button className="bg-green-600 text-white p-3 rounded-lg uppercase hover:opacity-80">
-          {loading ? 'Loading...' : id ? 'Update Recipe' : 'Add Recipe'}
+          {loading ? 'Loading...' : recipeId ? 'Update Recipe' : 'Add Recipe'}
         </button>
       </form>
       {error && <p className="text-red-500 font-bold">{error}</p>}

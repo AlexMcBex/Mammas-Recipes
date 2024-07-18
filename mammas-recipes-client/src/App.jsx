@@ -29,6 +29,7 @@ export default function App() {
         <Route path="/recipes" element={<RecipesIndex />} />
         <Route path="/recipes/:recipeId" element={<RecipeShow />} />
         <Route path="/recipes/new" element={<RecipeForm />} />
+        <Route path="/recipes/:recipeId/edit" element={<RecipeForm />} />
         <Route path="/about" element={<About />} />
         <Route path="/sign-in" element={<SignIn isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>} />
         {/* <Route path="/sign-out" element={<SignOut />} /> */}

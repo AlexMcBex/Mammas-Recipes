@@ -46,6 +46,7 @@ export default function RecipeShow() {
     </div>
     <div>
     <Link className="bg-blue-500 text-white p-3 rounded-lg m-5 font-bold" to="/recipes">Back to Recipes</Link>
+    <Link className="bg-yellow-700 text-white p-3 rounded-lg m-5 font-bold" to={`/recipes/${recipe.id}/edit`}>Modify Recipe</Link>
     </div>
     </>
   )
