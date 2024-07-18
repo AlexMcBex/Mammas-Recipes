@@ -4,6 +4,7 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import Home from './pages/Home'
 import RecipesIndex from './pages/recipes/RecipesIndex'
+import RecipeShow from './pages/recipes/RecipeShow'
 import About from './pages/About'
 import SignIn from './pages/SignIn'
 // import SignOut from './pages/SignOut'
@@ -25,6 +26,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/recipes" element={<RecipesIndex />} />
+        <Route path="/recipes/:recipeId" element={<RecipeShow />} />
         <Route path="/about" element={<About />} />
         <Route path="/sign-in" element={<SignIn isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>} />
         {/* <Route path="/sign-out" element={<SignOut />} /> */}

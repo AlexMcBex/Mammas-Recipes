@@ -24,15 +24,15 @@ export default function RecipesIndex() {
   const getBgColor = (difficulty) => {
     switch (difficulty) {
       case 'Easy':
-        return 'bg-green-500';
+        return 'bg-green-500'
       case 'Medium':
-        return 'bg-yellow-500';
+        return 'bg-yellow-500'
       case 'Hard':
-        return 'bg-red-500';
+        return 'bg-red-500'
       default:
-        return 'bg-gray-200';
+        return 'bg-gray-100'
     }
-  };
+  }
 
   return (
     <div className="p-5">
