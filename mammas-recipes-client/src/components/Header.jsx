@@ -1,6 +1,7 @@
 // import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { FaSearch } from 'react-icons/fa'
+import {jwtDecode} from 'jwt-decode'
 
 export default function Header({isLoggedIn, setIsLoggedIn}) {
   const handleSignOut = () => {
@@ -30,23 +31,28 @@ export default function Header({isLoggedIn, setIsLoggedIn}) {
           <FaSearch className="text-slate-700" />
         </form>
         <ul className="flex gap-4">
-          <Link to={'/'}>
-            <li className='hidden sm:inline text-slate-200 hover:text-white font-bold'>Home</li>
-          </Link>
           <Link to={'/about'}>
-            <li className='hidden sm:inline text-slate-200 hover:text-white font-bold'>About</li>
+            <li className='hidden sm:inline text-slate-800 hover:text-yellow-300 font-bold'>About</li>
           </Link>
           <Link to={'/recipes'}>
-            <li className='hidden sm:inline text-slate-200 hover:text-white font-bold'>Recipes</li>
+            <li className='hidden sm:inline text-slate-800 hover:text-yellow-300 font-bold'>Recipes</li>
           </Link>
           {isLoggedIn ? (
+            <>
+            <li className='hidden sm:inline text-slate-700  font-bold'>Hi, <i>{jwtDecode(localStorage.getItem('token')).username}</i></li>
             <Link to={'/sign-in'}>
-            <li className='sm:inline text-slate-200 hover:text-white font-bold' onClick={handleSignOut}>Sign out</li>
+            <li className='sm:inline text-slate-800 hover:text-yellow-300 font-bold' onClick={handleSignOut}>Sign out</li>
             </Link>
+            </>
           ) : (
+            <>
             <Link to={'/sign-in'}>
-              <li className='sm:inline text-slate-200 hover:text-white font-bold'>Sign in</li>
+              <li className='sm:inline text-slate-800 hover:text-yellow-300 font-bold'>Sign in</li>
             </Link>
+            <Link to={'/sign-up'}>
+              <li className='sm:inline text-slate-800 hover:text-yellow-300 font-bold'>Sign up</li>
+            </Link>
+            </>
           )}
         </ul>
       </div>
