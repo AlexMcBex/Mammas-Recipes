@@ -5,6 +5,7 @@ import Footer from './components/Footer'
 import Home from './pages/Home'
 import RecipesIndex from './pages/recipes/RecipesIndex'
 import RecipeShow from './pages/recipes/RecipeShow'
+import RecipeForm from './pages/recipes/RecipeForm'
 import About from './pages/About'
 import SignIn from './pages/SignIn'
 // import SignOut from './pages/SignOut'
@@ -27,6 +28,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/recipes" element={<RecipesIndex />} />
         <Route path="/recipes/:recipeId" element={<RecipeShow />} />
+        <Route path="/recipes/new" element={<RecipeForm />} />
         <Route path="/about" element={<About />} />
         <Route path="/sign-in" element={<SignIn isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>} />
         {/* <Route path="/sign-out" element={<SignOut />} /> */}

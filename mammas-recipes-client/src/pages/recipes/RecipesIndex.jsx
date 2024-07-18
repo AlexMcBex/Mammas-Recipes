@@ -36,7 +36,10 @@ export default function RecipesIndex() {
 
   return (
     <div className="p-5">
+      <div className="flex">
       <h1 className="text-3xl font-bold mb-5"> My Recipes</h1>
+      <Link className="bg-blue-500 text-white p-3 rounded-lg m-5 font-bold" to="/recipes/new">New Recipe</Link>
+      </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {recipes.length === 0 && <p>No recipes found :(</p>}
         {recipes.map((recipe) => (
@@ -45,7 +48,7 @@ export default function RecipesIndex() {
             key={recipe.id} 
             className={`p-4 rounded-lg shadow-md ${getBgColor(recipe.difficulty)}`}>
             <h2 className="text-2xl font-bold mb-2">{recipe.name}</h2>
-            <p className="text-gray-700">Prep Time: {recipe.prep_time}</p>
+            <p className="text-gray-700">Prep Time: {recipe.prep_time} minutes</p>
             <p className="text-gray-700">Difficulty: {recipe.difficulty}</p>
           </Link>
         ))}
