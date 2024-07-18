@@ -34,12 +34,12 @@ export default function Header({isLoggedIn, setIsLoggedIn}) {
           <Link to={'/about'}>
             <li className='hidden sm:inline text-slate-800 hover:text-yellow-300 font-bold'>About</li>
           </Link>
-          <Link to={'/recipes'}>
-            <li className='hidden sm:inline text-slate-800 hover:text-yellow-300 font-bold'>Recipes</li>
-          </Link>
           {isLoggedIn ? (
             <>
             <li className='hidden sm:inline text-slate-700  font-bold'>Hi, <i>{jwtDecode(localStorage.getItem('token')).username}</i></li>
+          <Link to={'/recipes'}>
+            <li className='hidden sm:inline text-slate-800 hover:text-yellow-300 font-bold'>Recipes</li>
+          </Link>
             <Link to={'/sign-in'}>
             <li className='sm:inline text-slate-800 hover:text-yellow-300 font-bold' onClick={handleSignOut}>Sign out</li>
             </Link>

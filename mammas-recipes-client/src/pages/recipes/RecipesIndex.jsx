@@ -21,6 +21,7 @@ export default function RecipesIndex() {
   }, [])
 
 
+
   const getBgColor = (difficulty) => {
     switch (difficulty) {
       case 'Easy':
@@ -32,6 +33,16 @@ export default function RecipesIndex() {
       default:
         return 'bg-gray-100'
     }
+  }
+
+  if(localStorage.getItem('token') === null) {
+    return (
+      <div className="p-5">
+        <h1 className="text-3xl font-bold mb-5"> My Recipes</h1>
+        <p>Please 
+        <Link className="bg-blue-500 text-white p-3 rounded-lg m-1 font-bold" to="/sign-in">Sign In</Link> to view your recipes</p>
+      </div>
+    )
   }
 
   return (
