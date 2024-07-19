@@ -23,6 +23,7 @@ Mamma's Recipes is your personal recipe book  _Italian-Cuisine-fueled_ full-stac
 - [ ] Allowed users to search for recipes
 - [ ] Improve auth
 
+
 ## User Stories
 - As a user, I would like to create new recipes.
 - As a user, I would like to browse all my recipes.
@@ -53,9 +54,86 @@ Mamma's Recipes is your personal recipe book  _Italian-Cuisine-fueled_ full-stac
 
 
 ## Entity Relationship Diagram
-<!-- ![ERD Placeholder](path/to/erd.png) -->
-_Note: The ERD will be completed as the project progresses._
+ ![ERD graph](img/ERD.jpg)
+<!-- _Note: The ERD will be completed as the project progresses._ -->
 
 ## Wireframe
+### Home
+ ![home page](img/home.png)
+
+### Sign Up
+ ![signup page](img/signup.png)
+### Recipes
+ ![recipes page](img/recipeindex.png)
+### Create a Recipe
+ ![create page](img/recipeform.png)
+### Edit a Recipe
+ ![Edit Recipe page](img/recipeedit.png)
+
+### Display a Recipe
+ ![show page](img/recipeshow.png)
 <!-- ![Wireframe Placeholder](path/to/wireframe.png) -->
-_Note: The wireframe will be completed as the project progresses._
+<!-- _Note: The wireframe will be completed as the project progresses._ -->
+
+
+## Installation and Setup
+### Backend Setup
+- Open the terminal
+- Clone the Repository:
+> git clone https://github.com/alex/mammas-recipes.git
+
+> cd mammas-recipes
+
+- Set Up a Virtual Environment:
+> python3 -m venv venv
+
+> source venv/bin/activate
+
+- Install Dependencies:
+> cd MammasRecipesAPI
+
+> pip install -r requirements.txt
+
+- Run Migrations:
+
+> python manage.py makemigrations
+
+> python manage.py migrate
+
+- Create a Superuser:
+
+> python manage.py createsuperuser
+
+- Start the Server:
+
+> python manage.py runserver
+
+### Frontend Setup
+- Navigate to the Frontend Directory:
+
+> cd mammas-recipes-client
+
+- Install Dependencies:
+
+> npm install
+
+- Start the Development Server:
+
+> npm start
+
+### Running the App Locally
+- Start the Backend Server:
+
+> cd mammas-recipes
+
+> source venv/bin/activate
+
+> python manage.py runserver
+- Start the Frontend Server:
+
+> cd mammas-recipes-client
+
+> npm start
+
+Access the Application:
+Open your web browser and navigate to http://localhost:3000 to access the frontend. The backend API will be accessible at http://localhost:8000/api.
